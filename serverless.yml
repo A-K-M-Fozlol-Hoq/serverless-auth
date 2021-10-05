@@ -1,0 +1,27 @@
+org: akmfozlolhoq
+app: serverless-auth
+service: serverless-auth
+
+frameworkVersion: '2'
+
+
+provider:
+  # name: aws
+  # runtime: nodejs12.x
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-2
+  stage: dev
+  lambdaHashingVersion: 20201221
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+        path: /
+        method: get
+        cors: true
+      - http:
+        path: /test
+        method: get
